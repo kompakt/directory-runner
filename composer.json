@@ -1,7 +1,7 @@
 {
     "name": "kompakt/directory-runner",
     "type": "library",
-    "description": "Little helper to run through a directory with event-emitting along the way",
+    "description": "Run through a directory with event-emitting along the way",
     "authors": [
         { "name": "Christian Hoegl", "email": "chrigu@sirprize.me" }
     ],
