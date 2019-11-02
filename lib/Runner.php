@@ -92,8 +92,8 @@ class Runner
     {
         try {
             $this->dispatcher->dispatch(
-                $this->eventNames->start(),
-                new StartEvent($this->dir)
+                new StartEvent($this->dir),
+                $this->eventNames->start()
             );
 
             return true;
@@ -101,8 +101,8 @@ class Runner
         catch (\Exception $e)
         {
             $this->dispatcher->dispatch(
-                $this->eventNames->startError(),
-                new StartErrorEvent($e, $this->dir)
+                new StartErrorEvent($e, $this->dir),
+                $this->eventNames->startError()
             );
 
             return false;
@@ -113,8 +113,8 @@ class Runner
     {
         try {
             $this->dispatcher->dispatch(
-                $this->eventNames->file(),
-                new FileEvent($file)
+                new FileEvent($file),
+                $this->eventNames->file()
             );
 
             return true;
@@ -122,8 +122,8 @@ class Runner
         catch (\Exception $e)
         {
             $this->dispatcher->dispatch(
-                $this->eventNames->fileError(),
-                new FileErrorEvent($e, $file)
+                new FileErrorEvent($e, $file),
+                $this->eventNames->fileError()
             );
 
             return false;
@@ -134,8 +134,8 @@ class Runner
     {
         try {
             $this->dispatcher->dispatch(
-                $this->eventNames->end(),
-                new EndEvent($this->dir)
+                new EndEvent($this->dir),
+                $this->eventNames->end()
             );
 
             return true;
@@ -143,8 +143,8 @@ class Runner
         catch (\Exception $e)
         {
             $this->dispatcher->dispatch(
-                $this->eventNames->endError(),
-                new EndErrorEvent($e, $this->dir)
+                new EndErrorEvent($e, $this->dir),
+                $this->eventNames->endError()
             );
 
             return false;
